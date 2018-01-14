@@ -12,7 +12,11 @@ Passphrase makes use of your wordlist to produce easily communicated passwords.
 
 ## So should I use this everywhere?
 
-I personally do but the caveats are that your computer can generate random numbers (same with any password generator), and honestly I don't know how secure clojure shuffle is.
+I can't recommend that you do.
+
+I personally do but the caveats are that your computer can generate random numbers (same with any password generator).
+
+The issue is that clojure shuffle uses a Knuth Shuffle, it's very unlikely to have an internal state to properly shuffle 2^18 ! states. Good discussion [here](https://blog.dandyer.co.uk/2008/04/10/a-java-programmers-guide-to-random-numbers-part-3-seeding/).
 
 ## Installation
 
@@ -42,7 +46,6 @@ Jar file will be in ./target/uberjar/ You want the "-standalone" file.
 
 ## Todo
 
-* How secure is Clojure's shuffle function?
 * Make it take command line arguments, password length, wordlist path, verbosity.
 
 ## License
