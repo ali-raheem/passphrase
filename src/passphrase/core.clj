@@ -13,8 +13,19 @@
    (slurp)
    (clojure.string/split-lines)
    (filter #(re-matches #"^[a-z]*$" %))
-   (distinct)
-   (shuffle)))
+   (distinct)))
+
+(defn pick-from-list'
+  [n coll]
+  (loop [list '() n n coll coll]
+    (if (= n 0)
+      list
+      (recur (conj list (rand-nth coll)) (dec n) coll))))
+
+(defn pick-from-list
+  "Randomly pick n elements from coll"
+  [n coll]
+  (pick-from-list' n coll))
 
 (defn -main
   "Generate passphrase from wordlist"
@@ -22,7 +33,7 @@
   (let [length 8
         filename "/usr/share/dict/words"
         words (list-from-file filename)]
-    (println (take length words))
+    (println (pick-from-list length words))
     (println "Minumum of"
              (entropy-per-word (count words))
              "bits of entropy per word")))
