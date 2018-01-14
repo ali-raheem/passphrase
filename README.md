@@ -2,7 +2,7 @@
 
 Takes a wordlist and randomly generates an 8 word phrase from it. It then provides an estimate of the minimum entropy per word.
 
-This is the entropy per word that a secure random shuffling would produce. Even if an assailant gives you a pre-cooked wordlist passphrase filters it for repeated words. And this entropy minimum is still valid **so long as Java's SecureRandom prng is secure**.
+This is the entropy per word that a secure randomselection would produce. Even if an assailant gives you a pre-cooked wordlist passphrase filters it for repeated words. And this entropy minimum is still valid **so long as Java's SecureRandom prng is secure**.
 
 Using the default /usr/share/dict/words list on my Fedora 27 I get >18 bits per word making a full 8 word phrase >144 bits of entropy.
 
