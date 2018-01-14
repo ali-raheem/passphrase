@@ -1,6 +1,14 @@
 (ns passphrase.core
   (:gen-class))
 
+(def secure-random (new java.security.SecureRandom))
+
+(defn secure-rand-nth
+  "rand-nth using SecureRandom"
+  [coll]
+  (let [n (count coll)]
+    (nth coll (Math/floor (* n (.nextFloat secure-random))))))
+
 (defn entropy-per-word
   "Calculate entropy per word from wordlist size"
   [n]
@@ -23,7 +31,7 @@
          coll coll]
     (if (= n 0)
       list
-      (recur (conj list (rand-nth coll)) (dec n) coll))))
+      (recur (conj list (secure-rand-nth coll)) (dec n) coll))))
 
 (defn -main
   "Generate passphrase from wordlist"

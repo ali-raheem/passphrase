@@ -2,7 +2,7 @@
 
 Takes a wordlist and randomly generates an 8 word phrase from it. It then provides an estimate of the minimum entropy per word.
 
-This is the entropy per word that a secure random shuffling would produce. Even if an assailant gives you a pre-cooked wordlist passphrase filters it for repeated words. And this entropy minimum is still valid **so long as clojure rand-nth randomness is ensured**.
+This is the entropy per word that a secure random shuffling would produce. Even if an assailant gives you a pre-cooked wordlist passphrase filters it for repeated words. And this entropy minimum is still valid **so long as Java's SecureRandom prng is secure**.
 
 Using the default /usr/share/dict/words list on my Fedora 27 I get >18 bits per word making a full 8 word phrase >144 bits of entropy.
 
@@ -12,11 +12,9 @@ Passphrase makes use of your wordlist to produce easily communicated passwords.
 
 ## So should I use this everywhere?
 
-I can't recommend that you do.
+I can't recommend that you do. Since security is so important but... I personally do but the caveats are that your computer can generate random numbers (same with any password generator).
 
-I personally do but the caveats are that your computer can generate random numbers (same with any password generator).
-
-Security here comes down to the rand-nth function in clojure.
+Security here comes down to the SecureRandom function in Java which is designed to be cryptographically secure.
 
 ## Installation
 
@@ -29,7 +27,7 @@ Latest version is always on [GitHub](https://github.com/wolfmankurd/passphrase).
 Make sure you have a wordlist at /usr/share/dict/words
 
 ```
-$ java -jar passphrase-0.1.0-standalone.jar
+$ java -jar passphrase-0.2.0-standalone.jar
 ```
 
 ## Building
