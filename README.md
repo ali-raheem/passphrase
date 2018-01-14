@@ -44,7 +44,6 @@ Jar file will be in ./target/uberjar/ You want the "-standalone" file.
 
 ## Todo
 
-* Make sure rand-nth is secure
 * Make it take command line arguments, password length, wordlist path, verbosity.
 
 ## License
