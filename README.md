@@ -16,7 +16,9 @@ I personally do but the caveats are that your computer can generate random numbe
 
 ## Installation
 
-Latest version is always on [GitHub](https://github.com/wolfmankurd/passphrase)
+Latest version is always on [GitHub](https://github.com/wolfmankurd/passphrase).
+
+[Releases](https://github.com/wolfmankurd/passphrase/releases)
 
 ## Usage
 
@@ -25,6 +27,18 @@ Make sure you have a wordlist at /usr/share/dict/words
 ```
 $ java -jar passphrase-0.1.0-standalone.jar
 ```
+
+## Building
+
+Uses [Leiningen](https://leiningen.org/)
+
+```
+$ git clone git@github.com:wolfmankurd/passphrase.git
+$ cd passphrase
+$ lein uberjar
+```
+
+Jar file will be in ./target/uberjar/ You want the "-standalone" file.
 
 ## Todo
 
