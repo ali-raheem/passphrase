@@ -18,20 +18,20 @@
   "Take a file name and return wordlist, sanitized and shuffled"
   [file]
   (->> file
-   (slurp)
-   (clojure.string/split-lines)
+   slurp
+   clojure.string/split-lines
    (filter #(re-matches #"^[a-z]*$" %))
-   (distinct)))
+   distinct))
 
 (defn pick-from-list
   "Pick n random elements from coll, repeats allowed"
   [n coll]
-  (loop [list '()
+  (loop [phrase '()
          n n
          coll coll]
     (if (= n 0)
-      list
-      (recur (conj list (secure-rand-nth coll)) (dec n) coll))))
+      phrase
+      (recur (conj phrase (secure-rand-nth coll)) (dec n) coll))))
 
 (defn -main
   "Generate passphrase from wordlist"
