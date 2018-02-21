@@ -1,4 +1,4 @@
-# passphrase
+# passphrase [![Build Status](https://travis-ci.org/wolfmankurd/passphrase.svg?branch=master)](https://travis-ci.org/wolfmankurd/passphrase)
 
 Takes a wordlist and randomly generates an 8 word phrase from it. It then provides an estimate of the minimum entropy per word.
 
